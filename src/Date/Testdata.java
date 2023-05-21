@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -100,5 +101,25 @@ public class Testdata {
         System.out.println(of.getMinute());
         System.out.println(of.getSecond());
         System.out.println(LocalDateTime.parse("2022-03-04T11:33:23"));
+    }
+
+    @Test
+    public void testParse(){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        String format = LocalDate.now().format(dateTimeFormatter);
+        System.out.println(format);
+
+        DateTimeFormatter dateTimeFormatter1 = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String format1 = LocalTime.now().format(dateTimeFormatter1);
+        System.out.println(format1);
+
+        DateTimeFormatter dateTimeFormatter2 = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String format2 = LocalDateTime.now().format(dateTimeFormatter2);
+        System.out.println(format2);
+
+
+        System.out.println(LocalDate.parse(format, dateTimeFormatter));
+        System.out.println(LocalTime.parse(format1, dateTimeFormatter1));
+        System.out.println(LocalDateTime.parse(format2, dateTimeFormatter2));
     }
 }
