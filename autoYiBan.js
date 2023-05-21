@@ -1,0 +1,2 @@
+auto.waitFor()
+var appName=""
