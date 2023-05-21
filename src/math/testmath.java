@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Random;
+import java.util.UUID;
 
 public class testmath {
     @Test
@@ -75,7 +76,17 @@ public class testmath {
         for (int i = 0; i < 8; i++) {
             buffer.append(chars[random.nextInt(chars.length)]);
         }
-        
+
         System.out.println(buffer);
     }
+
+    @Test
+    public void testUUID(){
+        for (int i=0;i<8;i++) {
+            UUID uuid=UUID.randomUUID();
+            System.out.println(uuid);
+        }
+
+    }
+
 }
