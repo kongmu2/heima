@@ -41,4 +41,7 @@ public class FileReaderdemo {
         out.close();//关闭含刷新，关闭后不可使用流
 
     }
+
+
+
 }
