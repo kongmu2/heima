@@ -14,7 +14,7 @@ public class file1 {
         File file1 = new File(rootfile, "test.txt");
         System.out.println("file.isDirectory() = " + file.isDirectory());
         System.out.println("file.getAbsolutePath() = " + file.getAbsolutePath());
-
+        System.out.println("file.getTotalSpace() = " + file.getTotalSpace());
         System.out.println("file.getFreeSpace() = " + file.getFreeSpace());
         System.out.println("file.getUsableSpace() = " + file.getUsableSpace());
 
@@ -39,6 +39,14 @@ public class file1 {
             }
         });
         System.out.println("Arrays.asList(list) = " + Arrays.asList(list));
+
+        File[] lists = file.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isDirectory();
+            }
+        });
+        System.out.println("Arrays.asList(list) = " + Arrays.asList(lists));
 
         //列出可用的文件系统根
         File[] roots = File.listRoots();
@@ -131,8 +139,6 @@ public class file1 {
     public void testdelete(){
         File file = new File("D:/新建文件夹/test");
         deletByfile(file);
-
-
     }
     public static void deletByfile(File file){
         if(!file.exists()) {
@@ -156,10 +162,17 @@ public class file1 {
 
     @Test
     public void testcreate(){
+        File file1 = new File("E:/java");
         File file = new File("D:/102班级/javaSE作业");
         if(file.mkdirs()) {
             System.out.println("创建目录成功");
         }else{
+            System.out.println("创建目录失败");
+        }
+
+        if (file1.mkdir()){
+            System.out.println("创建目录成功");
+        }else {
             System.out.println("创建目录失败");
         }
     }

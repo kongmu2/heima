@@ -27,4 +27,11 @@ public class lisetjava {
         System.out.println("输入完成");
 
     }
+    @Test
+    public void test2()throws IOException{
+        File file = new File("D:/cc.css");
+        if (!file.exists()){
+            file.createNewFile();
+        }
+    }
 }
